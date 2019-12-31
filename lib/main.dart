@@ -62,10 +62,10 @@ class _MyHomePageState extends State<MyHomePage>{
         return "0$n";
       }
 
+      String twoDigitHours = twoDigits(duration.inHours.remainder(60));
       String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
       String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
-      return "${twoDigits(duration.inDays)}日${twoDigits(
-          duration.inHours)}時間$twoDigitMinutes分$twoDigitSeconds秒";
+      return "${DateTime.now().year + 1}年まであと${duration.inDays}日$twoDigitHours時間$twoDigitMinutes分$twoDigitSeconds秒";
     }
   }
 
@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage>{
       ),
       body:
       Center(
-        child: Text("2020年まであと${_printDuration(differenceDays)}",
+        child: Text(_printDuration(differenceDays),
           style: TextStyle(
             fontSize: 24,
           ),
